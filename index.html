@@ -1,1 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Do I Actually Need This?</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="badge">
+            PURCHASE INTELLIGENCE SYSTEM v2.0
+        </div>
+
+        <h1>
+            🤨 Do I Actually Need This?
+        </h1>
+
+        <p>
+            Extremely serious analysis of extremely unnecessary purchases.
+        </p>
+
+    </header>
+
+
+    <!-- INPUT PAGE -->
+
+    <section id="inputPage" class="card">
+
+        <h2>🛒 Purchase Investigation</h2>
+
+        <label>What are you thinking of buying?</label>
+
+        <input
+            type="text"
+            id="item"
+            placeholder="Mechanical Keyboard"
+        >
+
+
+        <label>Do you already own something that does the same thing?</label>
+
+        <select id="existing">
+
+            <option value="yes">
+                Yes 😭
+            </option>
+
+            <option value="no">
+                No
+            </option>
+
+        </select>
+
+
+        <label>How often will you use it?</label>
+
+        <select id="usage">
+
+            <option value="daily">
+                Every day
+            </option>
+
+            <option value="often">
+                Several times a week
+            </option>
+
+            <option value="sometimes">
+                Sometimes
+            </option>
+
+            <option value="never">
+                Probably never 💀
+            </option>
+
+        </select>
+
+
+        <label>Why do you want it?</label>
+
+        <select id="reason">
+
+            <option value="need">
+                I actually need it
+            </option>
+
+            <option value="better">
+                It's better than what I have
+            </option>
+
+            <option value="cool">
+                It looks cool
+            </option>
+
+            <option value="trend">
+                Everyone has one
+            </option>
+
+            <option value="impulse">
+                I saw it 10 minutes ago
+            </option>
+
+        </select>
+
+
+        <label>How long have you wanted it?</label>
+
+        <select id="duration">
+
+            <option value="long">
+                More than 6 months
+            </option>
+
+            <option value="medium">
+                1–6 months
+            </option>
+
+            <option value="short">
+                A few weeks
+            </option>
+
+            <option value="today">
+                Since today 💀
+            </option>
+
+        </select>
+
+
+        <button onclick="analyze()">
+            🔍 ANALYZE MY TERRIBLE DECISION
+        </button>
+
+    </section>
+
+
+    <!-- LOADING -->
+
+    <section id="loading" class="card loading">
+
+        <div class="scanner">
+            🤖
+        </div>
+
+        <h2>ANALYZING PURCHASE...</h2>
+
+        <p id="loadingText">
+            Checking your financial decisions...
+        </p>
+
+        <div class="progress">
+
+            <div id="progressBar"></div>
+
+        </div>
+
+        <p id="percentage">
+            0%
+        </p>
+
+    </section>
+
+
+    <!-- RESULT -->
+
+    <section id="result">
+
+        <div class="resultHeader">
+
+            <span>ANALYSIS COMPLETE ✓</span>
+
+            <h2 id="itemResult">
+                Mechanical Keyboard
+            </h2>
+
+        </div>
+
+
+        <!-- MAIN SCORES -->
+
+        <div class="scoreGrid">
+
+            <div class="scoreCard">
+
+                <span>NEED SCORE</span>
+
+                <strong id="needScore">
+                    0%
+                </strong>
+
+                <div class="bar">
+                    <div id="needBar"></div>
+                </div>
+
+            </div>
+
+
+            <div class="scoreCard">
+
+                <span>WANT SCORE</span>
+
+                <strong id="wantScore">
+                    0%
+                </strong>
+
+                <div class="bar">
+                    <div id="wantBar"></div>
+                </div>
+
+            </div>
+
+
+            <div class="scoreCard">
+
+                <span>DELUSION INDEX</span>
+
+                <strong id="delusionScore">
+                    0%
+                </strong>
+
+                <div class="bar">
+                    <div id="delusionBar"></div>
+                </div>
+
+            </div>
+
+
+            <div class="scoreCard">
+
+                <span>REGRET RISK</span>
+
+                <strong id="regretScore">
+                    0%
+                </strong>
+
+                <div class="bar">
+                    <div id="regretBar"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ANALYSIS DETAILS -->
+
+        <div class="details">
+
+            <div class="detailCard">
+
+                <span>💸 FINANCIAL IMPACT</span>
+
+                <strong id="financial">
+                    ⚠️ HIGH
+                </strong>
+
+            </div>
+
+
+            <div class="detailCard">
+
+                <span>🔄 EXISTING ALTERNATIVES</span>
+
+                <strong id="alternatives">
+                    4
+                </strong>
+
+            </div>
+
+
+            <div class="detailCard">
+
+                <span>❤️ EMOTIONAL NECESSITY</span>
+
+                <strong id="emotional">
+                    97%
+                </strong>
+
+            </div>
+
+
+            <div class="detailCard">
+
+                <span>🤡 JUSTIFICATION QUALITY</span>
+
+                <strong id="justification">
+                    23%
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- VERDICT -->
+
+        <div class="verdict">
+
+            <div class="warning">
+                ⚠️ SYSTEM VERDICT
+            </div>
+
+            <h2 id="verdictTitle">
+                YOU DON'T NEED IT.
+            </h2>
+
+            <p id="verdictText">
+                Your emotional attachment to this item
+                is deeply concerning.
+            </p>
+
+            <div class="recommendation">
+
+                💡 RECOMMENDATION
+
+                <strong id="recommendation">
+                    BUY IT ANYWAY. 🛒
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- USELESSNESS -->
+
+        <div class="useless">
+
+            <h3>
+                🏆 PROJECT USEFULNESS
+            </h3>
+
+            <div class="uselessBar">
+
+                <div id="uselessProgress"></div>
+
+            </div>
+
+            <strong id="uselessScore">
+                2%
+            </strong>
+
+            <p>
+                Congratulations! You have successfully
+                built something almost completely useless.
+            </p>
+
+        </div>
+
+
+        <button onclick="location.reload()">
+            🔄 ANALYZE ANOTHER TERRIBLE DECISION
+        </button>
+
+    </section>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
